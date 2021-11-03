@@ -7,7 +7,7 @@ const table_name = 'story';
 
 exports.create = (req, res) => {
   req.body.creation_date = new Date();
-  db.connection.query(`INSERT INTO ${db_name}.${table_name} SET ?`, req.body, (error, results, fields) => {
+  db.connection.query(`INSERT INTO ${db_name}.${table_name} SET ?`, req.body, (err, results, fields) => {
     if (err) {
       res.send({ error: err });
       throw err;
