@@ -1,0 +1,5 @@
+<nav mat-tab-nav-bar [backgroundColor]="background">
+  <a mat-tab-link *ngFor="let link of links" (click)="activeLink = link.displayText" [active]="activeLink == link.displayText"
+    routerLink={{link.route}}>{{link.displayText}}</a>
+</nav>
+<router-outlet></router-outlet>
