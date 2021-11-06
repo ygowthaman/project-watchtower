@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IStory, Story } from 'src/app/models/story.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  story: Story;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.story = new Story();
   }
 
+  newStory() {
+    console.log(this.story);
+  }
 }

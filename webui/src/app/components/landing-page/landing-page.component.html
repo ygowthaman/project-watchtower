@@ -1,7 +1,39 @@
-<section>
-  <mat-card class="margin-30">
-    <a routerLink="/story-dashboard" routerLinkActive="active">Story Dashboard</a>
+<section class="padding-30">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Create a New Story
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form #newStoryForm="ngForm" (ngSubmit)="newStory()">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput required [(ngModel)]="story.title" name="title">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Author</mat-label>
+          <input matInput required [(ngModel)]="story.author" name="author">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput [(ngModel)]="story.description" name="description">
+        </mat-form-field>
+        <br>
+        <mat-slide-toggle color="primary" [checked]="story.isPrivate" (change)="story.isPrivate = !story.isPrivate">
+          Private
+        </mat-slide-toggle>
+        <br>
+        <br>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!newStoryForm.form.valid">Submit</button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+  <mat-card class="margin-30 cursor-pointer" routerLink="/story-dashboard">
+    <span>Manage Stories</span>
   </mat-card>
-  <mat-card class="margin-30">Manage Story Elements</mat-card>
 </section>
 <mat-divider></mat-divider>
