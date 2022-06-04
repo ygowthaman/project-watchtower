@@ -8,6 +8,7 @@ import { PlacesComponent } from '../components/places/places.component';
 import { ArtifactsComponent } from '../components/artifacts/artifacts.component';
 import { CreaturesComponent } from '../components/creatures/creatures.component';
 import { ScenesComponent } from '../components/scenes/scenes.component';
+import { StoryService } from '../services/story.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { ScenesComponent } from '../components/scenes/scenes.component';
     AppRoutingModule,
     AngularMaterialModule
   ],
-  exports: []
+  exports: [],
+  providers: [
+    StoryService
+  ]
 })
 export class StoryModule { }

@@ -8,6 +8,7 @@ import { AngularMaterialModule } from './modules/angular-material.module';
 import { StoryModule } from './modules/story.module';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     AngularMaterialModule,
     StoryModule
   ],

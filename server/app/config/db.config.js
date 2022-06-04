@@ -1,43 +1,21 @@
-var mysql = require('mysql');
+const Database = require('better-sqlite3');
+const path = require('path');
+const db = new Database(path.resolve('watchtower.db'), { fileMustExist: true, verbose: console.log });
 
-const db_connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password"
-});
+function get(sql, params) {
+  return db.prepare(sql).get(params);
+}
 
-const dbName = 'storyboard_db';
+function all(sql, params) {
+  return db.prepare(sql).all(params);
+}
 
-db_connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Mysql Server Connected");
+function run(sql, params) {
+  return db.prepare(sql).run(params);
+}
 
-  // db_connection.query(`CREATE DATABASE ${dbName}`, function (err, result) {
-  //   if (err) throw err;
-  //   console.log("storyboard_db Created");
-
-  //   // Create Story Table
-  //   var create_story_table = "CREATE TABLE storyboard_db.story (" +
-  //     "story_id int(11) NOT NULL AUTO_INCREMENT," +
-  //     "name varchar(30) NOT NULL," +
-  //     "description varchar(200) DEFAULT NULL," +
-  //     "creation_date datetime NOT NULL," +
-  //     "author varchar(45) NOT NULL," +
-  //     "private tinyint(4) NOT NULL," +
-  //     "PRIMARY KEY (story_id)," +
-  //     "UNIQUE KEY story_id_UNIQUE (story_id)," +
-  //     "UNIQUE KEY name_UNIQUE (name)" +
-  //     ")"
-  //   db_connection.query(create_story_table, function (err, result) {
-  //     if (err) throw err;
-  //     console.log("story Table Created");
-  //   });
-
-    // Other tables
-  // });
-
-
-
-});
-
-exports.connection = db_connection;
+module.exports = {
+  get,
+  all,
+  run
+}
