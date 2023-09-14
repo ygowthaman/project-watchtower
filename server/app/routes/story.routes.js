@@ -8,7 +8,7 @@ router.get('/', story_controller.getAll);
 
 router.get('/:id', story_controller.get);
 
-// router.post('/create', story_controller.create);
+router.post('/create', story_controller.create);
 
 router.put('/:id/update', story_controller.update);
 

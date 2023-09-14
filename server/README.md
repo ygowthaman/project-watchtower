@@ -19,3 +19,4 @@ If this is not output, DB might need installation/configuration. TIP: Use Google
 Enter `sqlite3 watchtower` to navigate to the database.
 
 Create tables and insert data if necessary.
+CREATE TRABLE story (id INTEGER PRIMARY KEY ASC AUTOINCREMENT, title TEXT NOT NULL, author TEXT NOT NULL, private BOOLEAN TEXT NOT NULL, description TEXT, created_at TEXT NOT NULL)
